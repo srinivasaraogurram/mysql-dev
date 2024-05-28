@@ -16,3 +16,4 @@ services:
      - MYSQL_DATABASE=mysqltestdb
    volumes:
       - ./db:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
