@@ -126,3 +126,5 @@ Default Schema:   // empty
 Select * from Customers;
 ```
 ![Displaying Customers](image.png)
+
+![alt text](image.png)
