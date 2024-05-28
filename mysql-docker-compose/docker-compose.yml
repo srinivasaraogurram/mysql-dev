@@ -1,0 +1,18 @@
+version: '3'
+services:
+ db:
+   image: mysql:latest
+   container_name: SriMySQLDockerComposeContainer
+   ports:
+     - "3306:3306"
+   environment:
+     - MYSQL_ROOT_PASSWORD=root
+     - MYSQL_DATABASE=MySQLSriDB
+   volumes:
+     - /workspace/mysql-dev-dev/data:/var/lib/mysql
+     # - this for local directory
+     # - /Users/sri/Documents/working/sri/Technologies/docker/docker-compose-mysql/db:/var/lib/mysql 
+  adminer:
+    image: adminer
+    ports:
+      - '8080:8080'

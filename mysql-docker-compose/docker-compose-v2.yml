@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: MySQLSriDB
+      MYSQL_RANDOM_ROOT_PASSWORD: 1 
+    volumes:
+      - ./data:/var/lib/mysql
+  adminer:
+    image: adminer
+    ports:
+      - '8080:8080'
