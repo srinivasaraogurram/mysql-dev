@@ -1,3 +1,3 @@
-create database MySQLSriDB;
-use mySQLSriDB;
+create database mysqltestdb;
+use mysqltestdb;
 

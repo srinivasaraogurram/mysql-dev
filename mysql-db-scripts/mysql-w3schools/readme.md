@@ -14,9 +14,10 @@ services:
      - "3306:3306"
    environment:
      - MYSQL_ROOT_PASSWORD=root
-     - MYSQL_DATABASE=MySQLSriDB
+     - MYSQL_DATABASE=mysqltestdb
    volumes:
-     - /Users/sri/Documents/working/sri/Technologies/docker/docker-compose-mysql/db:/var/lib/mysql 
+     - ./init:/docker-entrypoint-initdb.d
+     - ./db:/var/lib/mysql
 ```
 
 #### Command to Verify the Docker Compose file
