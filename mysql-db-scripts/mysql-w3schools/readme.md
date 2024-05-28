@@ -1,3 +1,50 @@
+## MYSQL Docker-Compose
+Reference Link
+https://medium.com/@victoria.kruczek_15509/create-a-local-database-with-docker-compose-and-view-it-in-mysql-workbench-974aee047874
+
+### Create a file name "docker-compose.yml"
+#### Content of docker-compose.yaml
+```
+version: '3'
+services:
+ db:
+   image: mysql:latest
+   container_name: SriMySQLDockerComposeContainer
+   ports:
+     - "3306:3306"
+   environment:
+     - MYSQL_ROOT_PASSWORD=root
+     - MYSQL_DATABASE=MySQLSriDB
+   volumes:
+     - /Users/sri/Documents/working/sri/Technologies/docker/docker-compose-mysql/db:/var/lib/mysql 
+```
+
+#### Command to Verify the Docker Compose file
+```
+docker-compose -v
+```
+output:
+```
+docker Compose version v2.27.0-desktop.2
+```
+#### Command to Run the mysql Docker - this will run mysql in foreground
+```
+docker-compose up 
+```
+#### Command to Run the mysql Docker - this will run mysql in background
+```
+docker-compose up -d 
+```
+### Command to Verify the Docker Compose file
+docker-compose -v
+output:
+docker Compose version v2.27.0-desktop.2
+### Command to Run the mysql Docker
+docker-compose up
+
+Created database using Docker-Compose file
+
+
 ### Create Database
 ```
 CREATE DATABASE MySQLSriDB
@@ -61,7 +108,18 @@ Insert
 		values 
 			('Berglunds snabbköp', 'Christina Berglund', 'Berguvsvägen 8', 'Luleå', 'S-958 22', 'Sweden');
             
-```     
+```    
+### Connect to DB using workbench
+![alt text](image-1.png)
+```
+properties are
+ConnectionName: localhost
+Connection Method : TCP/IP
+HostName:127.0.0.1
+Port:3306
+Password:root
+Default Schema:   // empty
+```
 ### Select data from table
 ```
 Select * from Customers;
