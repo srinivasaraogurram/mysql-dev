@@ -4,13 +4,18 @@ services:
     image: adminer
     ports:
       - '8080:8080'
+    #extra_hosts:
+    # - "host.docker.internal:host-gateway"
     depends_on: 
       - mysql
  mysql:
    image: mysql:latest
-   container_name: mysqlcontainer
+   #container_name: mysqlcontainer
+   command: --lower_case_table_names=1
    ports:
      - "3306:3306"
+   extra_hosts:
+      - "host.docker.internal:host-gateway"
    environment:
      - MYSQL_ROOT_PASSWORD=root
      - MYSQL_DATABASE=mysqltestdb

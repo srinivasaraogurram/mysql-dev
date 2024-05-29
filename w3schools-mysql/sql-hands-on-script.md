@@ -1,16 +1,51 @@
-CREATE TABLE customers (
-     CustomerID MEDIUMINT NOT NULL AUTO_INCREMENT,
-     CustomerName varchar(255) NOT NULL,
-     ContactName varchar(255), 
-	Address varchar(255) NOT NULL,
-     City varchar(255) NOT NULL,
-	PostalCode varchar(255) NOT NULL,
-     Country varchar(255) NOT NULL,
-     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-     PRIMARY KEY (CustomerID)
-);
+mysql -uroot -proot -h127.0.0.1 mysqltestdb
 
-INSERT INTO customers (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('1', 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str. 57', 'Berlin', '12209', 'Germany');
+```
+select * from customers;
+```
+### What is RDBMS?
+RDBMS stands for Relational Database Management System.
+
+RDBMS is a program used to maintain a relational database.
+
+RDBMS is the basis for all modern database systems such as MySQL, Microsoft SQL Server, Oracle, and Microsoft Access.
+
+RDBMS uses SQL queries to access the data in the database.
+
+### Some of The Most Important SQL Commands 
+
+- SELECT - extracts data from a database
+- UPDATE - updates data in a database
+- DELETE - deletes data from a database
+- INSERT INTO - inserts new data into a database
+- CREATE DATABASE - creates a new database
+- ALTER DATABASE - modifies a database
+- CREATE TABLE - creates a new table
+- ALTER TABLE - modifies a table
+- DROP TABLE - deletes a table
+- CREATE INDEX - creates an index (search key)
+- DROP INDEX - deletes an index
+
+# select specific coloumns from table
+```
+
+mysql -uroot -proot -h127.0.0.1 mysqltestdb -e "SELECT CustomerName, City, Country FROM customers"
+
+mysql -uroot -proot -h127.0.0.1 mysqltestdb -e "select * from customers"
+mysql -uroot -proot -h127.0.0.1 mysqltestdb -e "SELECT DISTINCT Country FROM customers"
+
+mysql -uroot -proot -h127.0.0.1 mysqltestdb -e "SELECT COUNT(DISTINCT Country) FROM customers;"
+```
+# WHERE Clause Example
+
+```
+mysql -uroot -proot -h127.0.0.1 mysqltestdb -e "SELECT * FROM customers
+WHERE Country = 'Mexico';"
+```
+### The MySQL AND, OR and NOT Operators
+## load data
+```
+mysql -uroot -proot -h127.0.0.1 mysqltestdb -e "INSERT INTO customers (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('1', 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str. 57', 'Berlin', '12209', 'Germany');
 INSERT INTO customers (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('2', 'Ana Trujillo Emparedados y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico');
 INSERT INTO customers (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('3', 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023', 'Mexico');
 INSERT INTO customers (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('4', 'Around the Horn', 'Thomas Hardy', '120 Hanover Sq.', 'London', 'WA1 1DP', 'UK');
@@ -100,4 +135,18 @@ INSERT INTO customers (CustomerID, CustomerName, ContactName, Address, City, Pos
 INSERT INTO customers (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('88', 'Wellington Importadora', 'Paula Parente', 'Rua do Mercado, 12', 'Resende', '08737-363', 'Brazil');
 INSERT INTO customers (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('89', 'White Clover Markets', 'Karl Jablonski', '305 - 14th Ave. S. Suite 3B', 'Seattle', '98128', 'USA');
 INSERT INTO customers (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('90', 'Wilman Kala', 'Matti Karttunen', 'Keskuskatu 45', 'Helsinki', '21240', 'Finland');
-INSERT INTO customers (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('91', 'Wolski', 'Zbyszek', 'ul. Filtrowa 68', 'Walla', '01-012', 'Poland');
+INSERT INTO customers (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('91', 'Wolski', 'Zbyszek', 'ul. Filtrowa 68', 'Walla', '01-012', 'Poland');"
+    ```
+### AND Example
+```
+SELECT * FROM customers
+WHERE Country = 'Germany' AND City = 'Berlin';
+```
+### OR Example
+```
+SELECT * FROM customers
+WHERE City = 'Berlin' OR City = 'Stuttgart';
+```
+### NOT Example
+SELECT * FROM Customers
+WHERE NOT Country = 'Germany';
