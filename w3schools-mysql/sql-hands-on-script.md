@@ -150,3 +150,7 @@ WHERE City = 'Berlin' OR City = 'Stuttgart';
 ### NOT Example
 SELECT * FROM Customers
 WHERE NOT Country = 'Germany';
+
+#ORDER BY Example
+SELECT * FROM Customers
+ORDER BY Country;

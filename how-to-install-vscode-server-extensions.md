@@ -1,0 +1,1 @@
+ code-server --install-extension cweijan.vscode-mysql-client2
