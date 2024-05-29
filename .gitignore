@@ -1,5 +1,4 @@
-mysql-docker-compose/db/** */
-mysql-docker-compose/data/** */
-db/**
-data/** 
+**/data
+**/db
+
 
